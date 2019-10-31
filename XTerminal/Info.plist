@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>DVTPlugInCompatibilityUUIDs</key>
+	<array>
+		<string>92CB09D8-3B74-4EF7-849C-99816039F0E7</string>
+		<string>2FD51EF8-522D-4532-9698-980C4C497FD1</string>
+		<string>B89EAABF-783E-4EBF-80D4-A9EAC69F77F2</string>
+		<string>07BAA045-2DD3-489F-B232-D1D4F8B92D2D</string>
+		<string>72F7D751-F810-43B8-A53F-1F1DFD74FC54</string>
+		<string>1D84347C-F9B6-4439-8A0C-05B2A2ADE807</string>
+		<string>D7881182-AD00-4C36-A94D-F45FC9B0CF85</string>
+		<string>8B9F56A7-4D8B-41AA-A65D-D4906CDF1539</string>
+		<string>26355AE5-C605-4A56-A79B-AD4207EA18DD</string>
+		<string>EE23884D-A5C0-4163-94CF-DBBF3A5ED8D6</string>
+		<string>B395D63E-9166-4CD6-9287-6889D507AD6A</string>
+		<string>C3998872-68CC-42C2-847C-B44D96AB2691</string>
+		<string>CA351AD8-3176-41CB-875C-42A05C7CDEC7</string>
+		<string>E0A62D1F-3C18-4D74-BFE5-A4167D643966</string>
+		<string>DF11C142-1584-4A99-87AC-1925D5F5652A</string>
+		<string>C3998872-68CC-42C2-847C-B44D96AB2691</string>
+		<string>B395D63E-9166-4CD6-9287-6889D507AD6A</string>
+		<string>426A087B-D3AA-431A-AFDF-F135EC00DE1C</string>
+	</array>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2019 Peter. All rights reserved.</string>
+	<key>NSPrincipalClass</key>
+	<string>XTerminal</string>
+	<key>XC4Compatible</key>
+	<true/>
+	<key>XCPluginHasUI</key>
+	<false/>
+	<key>me.delisa.XcodePluginBase.AllowedLoaders</key>
+	<array>
+		<string>com.apple.dt.Xcode</string>
+	</array>
+</dict>
+</plist>

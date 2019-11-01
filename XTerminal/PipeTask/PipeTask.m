@@ -21,6 +21,11 @@
 
 @implementation PipeTask
 
+- (void)dealloc
+{
+    NSLog(@"PipeTask dealloc");
+}
+
 - (instancetype)init
 {
     self = [super init];

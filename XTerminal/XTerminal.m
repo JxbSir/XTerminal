@@ -115,6 +115,7 @@ static XTerminal *sharedPlugin;
     if (_task) {
         [_task cancel];
     }
+    __weak typeof(self) wself = self;
     _task = [[PipeTask alloc] init];
     [_task execute:cmd completion:^(NSString * _Nonnull text) {
         NSUserNotification* notification = [[NSUserNotification alloc] init];
@@ -124,7 +125,7 @@ static XTerminal *sharedPlugin;
         [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
         NSUserNotificationCenter.defaultUserNotificationCenter.delegate = self;
     } finish:^{
-        
+        wself.task = nil;
     }];
 }
 
@@ -132,8 +133,7 @@ static XTerminal *sharedPlugin;
     CCPProject* project = [CCPProject projectForKeyWindow];
     NSString* path = project.directoryPath;
     _terminalController = [[TerminalController alloc] initWithProjectPath:path];
-    [_terminalController.window becomeKeyWindow];
-    [_terminalController showWindow:nil];
+    [_terminalController.window makeKeyAndOrderFront:nil];
 }
 
 #pragma mark - delegate

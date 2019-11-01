@@ -40,11 +40,20 @@
     [super windowDidLoad];
    
     CGRect rect = self.window.contentView.bounds;
+    
+    NSString* path = [self.projectPath copy];
+    if (path.length > 60) {
+        path = [NSString stringWithFormat:@"%@...%@", [path substringToIndex:20], [path substringFromIndex:path.length - 40]];
+    }
     NSString* prompt = [NSString stringWithFormat:@"👍👍👍%@🌟", self.projectPath];
 
     __weak typeof(self) wself = self;
     self.shellView = [[JBShellContainerView alloc] initWithFrame:rect shellViewClass:nil prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
-        [wself execute:[wself cmdCompatible:input]];
+        if (input) {
+            [wself execute:[wself cmdCompatible:input]];
+        } else {
+            [wself.task cancel];
+        }
     }];
     [self.window.contentView addSubview:self.shellView];
     [self.window makeFirstResponder:self.shellView.shellView];
@@ -63,6 +72,7 @@
         [wself.shellView.shellView appendOutputWithNewlines:text];
     } finish:^{
         [wself.shellView.shellView endDelayedOutputMode];
+        wself.task = nil;
     }];
 }
 

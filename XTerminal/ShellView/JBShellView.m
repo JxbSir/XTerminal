@@ -211,7 +211,12 @@
 				[self replaceCurrentCommandWith:[[self.commandHistory moveToNextHistoryCommand] currentCommand]];
 				break;
 			default:
-				[super keyDown:theEvent];
+                if (character == '\x03') {
+                    [self insertNewlineIgnoringFieldEditor:self];
+                    self.inputHandler(nil, self);
+                } else {
+                    [super keyDown:theEvent];
+                }
 				break;
 		}
 	} else {

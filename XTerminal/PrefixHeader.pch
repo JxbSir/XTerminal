@@ -1,0 +1,13 @@
+//
+//  PrefixHeader.pch
+//  XTerminal
+//
+//  Created by Peter on 2019/10/31.
+//  Copyright © 2019 Peter. All rights reserved.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+
+    #import "CCPXCodeConsole.h"
+#endif

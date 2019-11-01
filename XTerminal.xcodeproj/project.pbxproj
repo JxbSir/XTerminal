@@ -7,23 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02B4D0E236C0A07006D025C /* PipeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D02B4D0D236C0A07006D025C /* PipeTask.m */; };
 		D0A557D8236ABCE4007FA530 /* XTerminal.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557D7236ABCE4007FA530 /* XTerminal.m */; };
+		D0A557F1236ACFDD007FA530 /* CCPWorkspaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E4236ACFDD007FA530 /* CCPWorkspaceManager.m */; };
+		D0A557F2236ACFDD007FA530 /* CCPDocumentationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E5236ACFDD007FA530 /* CCPDocumentationManager.m */; };
+		D0A557F3236ACFDD007FA530 /* CCPShellRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E6236ACFDD007FA530 /* CCPShellRunner.m */; };
+		D0A557F4236ACFDD007FA530 /* CCPPathResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E8236ACFDD007FA530 /* CCPPathResolver.m */; };
+		D0A557F5236ACFDD007FA530 /* CCPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E9236ACFDD007FA530 /* CCPProject.m */; };
+		D0A557F6236ACFDD007FA530 /* CCPXCodeConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557EA236ACFDD007FA530 /* CCPXCodeConsole.m */; };
+		D0A557F7236ACFDD007FA530 /* CCPRunOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557EF236ACFDD007FA530 /* CCPRunOperation.m */; };
+		D0A557FB236AD090007FA530 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A557FA236AD090007FA530 /* AppKit.framework */; };
+		D0A557FD236AD095007FA530 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A557FC236AD095007FA530 /* Foundation.framework */; };
+		D0A55808236AE399007FA530 /* TerminalController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A55806236AE399007FA530 /* TerminalController.m */; };
+		D0A55809236AE399007FA530 /* TerminalController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A55807236AE399007FA530 /* TerminalController.xib */; };
+		D0A5581E236BD77B007FA530 /* JBShellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A55819236BD77A007FA530 /* JBShellView.m */; };
+		D0A5581F236BD77B007FA530 /* JBTextEditorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A5581C236BD77B007FA530 /* JBTextEditorProcessor.m */; };
+		D0A55820236BD77B007FA530 /* JBShellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A5581D236BD77B007FA530 /* JBShellContainerView.m */; };
+		D0A55824236BD7AF007FA530 /* JBShellCommandHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A55823236BD7AE007FA530 /* JBShellCommandHistory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D02B4D0C236C0A07006D025C /* PipeTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PipeTask.h; sourceTree = "<group>"; };
+		D02B4D0D236C0A07006D025C /* PipeTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PipeTask.m; sourceTree = "<group>"; };
 		D0A557D1236ABCE4007FA530 /* XTerminal.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XTerminal.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0A557D5236ABCE4007FA530 /* XTerminal.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XTerminal.xcscheme; path = ../../XTerminal.xcodeproj/xcshareddata/xcschemes/XTerminal.xcscheme; sourceTree = "<group>"; };
 		D0A557D6236ABCE4007FA530 /* XTerminal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTerminal.h; sourceTree = "<group>"; };
 		D0A557D7236ABCE4007FA530 /* XTerminal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XTerminal.m; sourceTree = "<group>"; };
 		D0A557D9236ABCE4007FA530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0A557E3236ACFDD007FA530 /* CCPXCodeConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPXCodeConsole.h; sourceTree = "<group>"; };
+		D0A557E4236ACFDD007FA530 /* CCPWorkspaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPWorkspaceManager.m; sourceTree = "<group>"; };
+		D0A557E5236ACFDD007FA530 /* CCPDocumentationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPDocumentationManager.m; sourceTree = "<group>"; };
+		D0A557E6236ACFDD007FA530 /* CCPShellRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPShellRunner.m; sourceTree = "<group>"; };
+		D0A557E7236ACFDD007FA530 /* CCPRunOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPRunOperation.h; sourceTree = "<group>"; };
+		D0A557E8236ACFDD007FA530 /* CCPPathResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPPathResolver.m; sourceTree = "<group>"; };
+		D0A557E9236ACFDD007FA530 /* CCPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPProject.m; sourceTree = "<group>"; };
+		D0A557EA236ACFDD007FA530 /* CCPXCodeConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPXCodeConsole.m; sourceTree = "<group>"; };
+		D0A557EB236ACFDD007FA530 /* CCPDocumentationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPDocumentationManager.h; sourceTree = "<group>"; };
+		D0A557EC236ACFDD007FA530 /* CCPWorkspaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPWorkspaceManager.h; sourceTree = "<group>"; };
+		D0A557ED236ACFDD007FA530 /* CCPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPProject.h; sourceTree = "<group>"; };
+		D0A557EE236ACFDD007FA530 /* CCPPathResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPPathResolver.h; sourceTree = "<group>"; };
+		D0A557EF236ACFDD007FA530 /* CCPRunOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPRunOperation.m; sourceTree = "<group>"; };
+		D0A557F0236ACFDD007FA530 /* CCPShellRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPShellRunner.h; sourceTree = "<group>"; };
+		D0A557FA236AD090007FA530 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D0A557FC236AD095007FA530 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D0A557FF236AD153007FA530 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D0A55805236AE399007FA530 /* TerminalController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TerminalController.h; sourceTree = "<group>"; };
+		D0A55806236AE399007FA530 /* TerminalController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TerminalController.m; sourceTree = "<group>"; };
+		D0A55807236AE399007FA530 /* TerminalController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TerminalController.xib; sourceTree = "<group>"; };
+		D0A55818236BD77A007FA530 /* JBShellContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellContainerView.h; sourceTree = "<group>"; };
+		D0A55819236BD77A007FA530 /* JBShellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellView.m; sourceTree = "<group>"; };
+		D0A5581A236BD77B007FA530 /* JBShellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellView.h; sourceTree = "<group>"; };
+		D0A5581B236BD77B007FA530 /* JBTextEditorProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTextEditorProcessor.h; sourceTree = "<group>"; };
+		D0A5581C236BD77B007FA530 /* JBTextEditorProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTextEditorProcessor.m; sourceTree = "<group>"; };
+		D0A5581D236BD77B007FA530 /* JBShellContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellContainerView.m; sourceTree = "<group>"; };
+		D0A55821236BD790007FA530 /* JBShellViewBlockTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellViewBlockTypedefs.h; sourceTree = "<group>"; };
+		D0A55822236BD7AE007FA530 /* JBShellCommandHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellCommandHistory.h; sourceTree = "<group>"; };
+		D0A55823236BD7AE007FA530 /* JBShellCommandHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellCommandHistory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		D0A557F8236AD085007FA530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A557FD236AD095007FA530 /* Foundation.framework in Frameworks */,
+				D0A557FB236AD090007FA530 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		D02B4D0B236C09F2006D025C /* PipeTask */ = {
+			isa = PBXGroup;
+			children = (
+				D02B4D0C236C0A07006D025C /* PipeTask.h */,
+				D02B4D0D236C0A07006D025C /* PipeTask.m */,
+			);
+			path = PipeTask;
+			sourceTree = "<group>";
+		};
 		D0A557C9236ABCE4007FA530 = {
 			isa = PBXGroup;
 			children = (
 				D0A557D3236ABCE4007FA530 /* XTerminal */,
 				D0A557D2236ABCE4007FA530 /* Products */,
+				D0A557F9236AD090007FA530 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -38,20 +106,64 @@
 		D0A557D3236ABCE4007FA530 /* XTerminal */ = {
 			isa = PBXGroup;
 			children = (
+				D02B4D0B236C09F2006D025C /* PipeTask */,
+				D0A55817236BD747007FA530 /* ShellView */,
+				D0A557E2236ACFDD007FA530 /* Helpers */,
 				D0A557D6236ABCE4007FA530 /* XTerminal.h */,
 				D0A557D7236ABCE4007FA530 /* XTerminal.m */,
 				D0A557D9236ABCE4007FA530 /* Info.plist */,
-				D0A557D4236ABCE4007FA530 /* Supporting Files */,
+				D0A557FF236AD153007FA530 /* PrefixHeader.pch */,
+				D0A55805236AE399007FA530 /* TerminalController.h */,
+				D0A55806236AE399007FA530 /* TerminalController.m */,
+				D0A55807236AE399007FA530 /* TerminalController.xib */,
 			);
 			path = XTerminal;
 			sourceTree = "<group>";
 		};
-		D0A557D4236ABCE4007FA530 /* Supporting Files */ = {
+		D0A557E2236ACFDD007FA530 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D0A557D5236ABCE4007FA530 /* XTerminal.xcscheme */,
+				D0A557E3236ACFDD007FA530 /* CCPXCodeConsole.h */,
+				D0A557E4236ACFDD007FA530 /* CCPWorkspaceManager.m */,
+				D0A557E5236ACFDD007FA530 /* CCPDocumentationManager.m */,
+				D0A557E6236ACFDD007FA530 /* CCPShellRunner.m */,
+				D0A557E7236ACFDD007FA530 /* CCPRunOperation.h */,
+				D0A557E8236ACFDD007FA530 /* CCPPathResolver.m */,
+				D0A557E9236ACFDD007FA530 /* CCPProject.m */,
+				D0A557EA236ACFDD007FA530 /* CCPXCodeConsole.m */,
+				D0A557EB236ACFDD007FA530 /* CCPDocumentationManager.h */,
+				D0A557EC236ACFDD007FA530 /* CCPWorkspaceManager.h */,
+				D0A557ED236ACFDD007FA530 /* CCPProject.h */,
+				D0A557EE236ACFDD007FA530 /* CCPPathResolver.h */,
+				D0A557EF236ACFDD007FA530 /* CCPRunOperation.m */,
+				D0A557F0236ACFDD007FA530 /* CCPShellRunner.h */,
 			);
-			path = "Supporting Files";
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D0A557F9236AD090007FA530 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0A557FC236AD095007FA530 /* Foundation.framework */,
+				D0A557FA236AD090007FA530 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0A55817236BD747007FA530 /* ShellView */ = {
+			isa = PBXGroup;
+			children = (
+				D0A55822236BD7AE007FA530 /* JBShellCommandHistory.h */,
+				D0A55823236BD7AE007FA530 /* JBShellCommandHistory.m */,
+				D0A55818236BD77A007FA530 /* JBShellContainerView.h */,
+				D0A5581D236BD77B007FA530 /* JBShellContainerView.m */,
+				D0A5581A236BD77B007FA530 /* JBShellView.h */,
+				D0A55819236BD77A007FA530 /* JBShellView.m */,
+				D0A55821236BD790007FA530 /* JBShellViewBlockTypedefs.h */,
+				D0A5581B236BD77B007FA530 /* JBTextEditorProcessor.h */,
+				D0A5581C236BD77B007FA530 /* JBTextEditorProcessor.m */,
+			);
+			path = ShellView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -62,6 +174,7 @@
 			buildConfigurationList = D0A557DC236ABCE4007FA530 /* Build configuration list for PBXNativeTarget "XTerminal" */;
 			buildPhases = (
 				D0A557CE236ABCE4007FA530 /* Sources */,
+				D0A557F8236AD085007FA530 /* Frameworks */,
 				D0A557CF236ABCE4007FA530 /* Resources */,
 			);
 			buildRules = (
@@ -110,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A55809236AE399007FA530 /* TerminalController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +234,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A557F6236ACFDD007FA530 /* CCPXCodeConsole.m in Sources */,
+				D0A557F1236ACFDD007FA530 /* CCPWorkspaceManager.m in Sources */,
+				D0A557F4236ACFDD007FA530 /* CCPPathResolver.m in Sources */,
+				D0A55824236BD7AF007FA530 /* JBShellCommandHistory.m in Sources */,
+				D0A5581E236BD77B007FA530 /* JBShellView.m in Sources */,
+				D0A55808236AE399007FA530 /* TerminalController.m in Sources */,
+				D0A557F5236ACFDD007FA530 /* CCPProject.m in Sources */,
+				D0A5581F236BD77B007FA530 /* JBTextEditorProcessor.m in Sources */,
 				D0A557D8236ABCE4007FA530 /* XTerminal.m in Sources */,
+				D0A557F3236ACFDD007FA530 /* CCPShellRunner.m in Sources */,
+				D0A55820236BD77B007FA530 /* JBShellContainerView.m in Sources */,
+				D0A557F7236ACFDD007FA530 /* CCPRunOperation.m in Sources */,
+				D02B4D0E236C0A07006D025C /* PipeTask.m in Sources */,
+				D0A557F2236ACFDD007FA530 /* CCPDocumentationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +370,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				GCC_PREFIX_HEADER = XTerminal/PrefixHeader.pch;
 				INFOPLIST_FILE = XTerminal/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.jinxuebin.XTerminal;
@@ -258,6 +386,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				GCC_PREFIX_HEADER = XTerminal/PrefixHeader.pch;
 				INFOPLIST_FILE = XTerminal/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.jinxuebin.XTerminal;

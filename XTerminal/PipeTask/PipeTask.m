@@ -71,7 +71,9 @@
         if (text.length > 0) {
             self.completion(text);
             [_file readInBackgroundAndNotify];
-        } else {
+        }
+    
+        if (!self.task.running) {
             self.finish();
         }
     }

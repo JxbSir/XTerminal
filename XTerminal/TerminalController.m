@@ -45,7 +45,7 @@
     if (path.length > 60) {
         path = [NSString stringWithFormat:@"%@...%@", [path substringToIndex:20], [path substringFromIndex:path.length - 40]];
     }
-    NSString* prompt = [NSString stringWithFormat:@"👍👍👍%@🌟", self.projectPath];
+    NSString* prompt = [NSString stringWithFormat:@"👍👍👍%@🌟", path];
 
     __weak typeof(self) wself = self;
     self.shellView = [[JBShellContainerView alloc] initWithFrame:rect shellViewClass:nil prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {

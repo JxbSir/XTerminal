@@ -8,6 +8,7 @@
 
 #import "XTerminal.h"
 #import "TerminalController.h"
+#import "NotificationController.h"
 #import "CCPProject.h"
 #import "PipeTask.h"
 
@@ -15,7 +16,8 @@ static XTerminal *sharedPlugin;
 
 @interface XTerminal ()<NSUserNotificationCenterDelegate>
 
-@property (nonatomic, strong) TerminalController* terminalController;
+@property (nonatomic, strong) TerminalController*       terminalController;
+@property (nonatomic, strong) NotificationController*   notificationController;
 
 @property (nonatomic, strong) PipeTask* task;
 @end
@@ -118,12 +120,7 @@ static XTerminal *sharedPlugin;
     __weak typeof(self) wself = self;
     _task = [[PipeTask alloc] init];
     [_task execute:cmd completion:^(NSString * _Nonnull text) {
-        NSUserNotification* notification = [[NSUserNotification alloc] init];
-        notification.title = @"XTerminal";
-        notification.subtitle = @"当前分支";
-        notification.informativeText = text;
-        [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
-        NSUserNotificationCenter.defaultUserNotificationCenter.delegate = self;
+        [self showNotification: text];
     } finish:^{
         wself.task = nil;
     }];
@@ -134,6 +131,17 @@ static XTerminal *sharedPlugin;
     NSString* path = project.directoryPath;
     _terminalController = [[TerminalController alloc] initWithProjectPath:path];
     [_terminalController.window makeKeyAndOrderFront:nil];
+}
+
+- (void)showNotification:(NSString *)text {
+    
+    _notificationController = [[NotificationController alloc] initWithInfo:text];
+    [_notificationController.window makeKeyAndOrderFront:nil];
+    [_notificationController.window center];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.notificationController.window close];
+    });
 }
 
 #pragma mark - delegate

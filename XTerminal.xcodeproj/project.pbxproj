@@ -24,6 +24,8 @@
 		D0A5581F236BD77B007FA530 /* JBTextEditorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A5581C236BD77B007FA530 /* JBTextEditorProcessor.m */; };
 		D0A55820236BD77B007FA530 /* JBShellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A5581D236BD77B007FA530 /* JBShellContainerView.m */; };
 		D0A55824236BD7AF007FA530 /* JBShellCommandHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A55823236BD7AE007FA530 /* JBShellCommandHistory.m */; };
+		D0CDFC37236F257C00262E6E /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CDFC35236F257C00262E6E /* NotificationController.m */; };
+		D0CDFC38236F257C00262E6E /* NotificationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0CDFC36236F257C00262E6E /* NotificationController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,9 @@
 		D0A55821236BD790007FA530 /* JBShellViewBlockTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellViewBlockTypedefs.h; sourceTree = "<group>"; };
 		D0A55822236BD7AE007FA530 /* JBShellCommandHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellCommandHistory.h; sourceTree = "<group>"; };
 		D0A55823236BD7AE007FA530 /* JBShellCommandHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellCommandHistory.m; sourceTree = "<group>"; };
+		D0CDFC34236F257C00262E6E /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		D0CDFC35236F257C00262E6E /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		D0CDFC36236F257C00262E6E /* NotificationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 		D0A557D3236ABCE4007FA530 /* XTerminal */ = {
 			isa = PBXGroup;
 			children = (
+				D0CDFC30236F254500262E6E /* Notification */,
 				D02B4D0B236C09F2006D025C /* PipeTask */,
 				D0A55817236BD747007FA530 /* ShellView */,
 				D0A557E2236ACFDD007FA530 /* Helpers */,
@@ -166,6 +172,16 @@
 			path = ShellView;
 			sourceTree = "<group>";
 		};
+		D0CDFC30236F254500262E6E /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				D0CDFC34236F257C00262E6E /* NotificationController.h */,
+				D0CDFC35236F257C00262E6E /* NotificationController.m */,
+				D0CDFC36236F257C00262E6E /* NotificationController.xib */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CDFC38236F257C00262E6E /* NotificationController.xib in Resources */,
 				D0A55809236AE399007FA530 /* TerminalController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +256,7 @@
 				D0A557F4236ACFDD007FA530 /* CCPPathResolver.m in Sources */,
 				D0A55824236BD7AF007FA530 /* JBShellCommandHistory.m in Sources */,
 				D0A5581E236BD77B007FA530 /* JBShellView.m in Sources */,
+				D0CDFC37236F257C00262E6E /* NotificationController.m in Sources */,
 				D0A55808236AE399007FA530 /* TerminalController.m in Sources */,
 				D0A557F5236ACFDD007FA530 /* CCPProject.m in Sources */,
 				D0A5581F236BD77B007FA530 /* JBTextEditorProcessor.m in Sources */,

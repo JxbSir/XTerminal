@@ -120,7 +120,20 @@ static XTerminal *sharedPlugin;
     __weak typeof(self) wself = self;
     _task = [[PipeTask alloc] init];
     [_task execute:cmd completion:^(NSString * _Nonnull text) {
-        [self showNotification: text];
+        
+        NSArray* branches = [text componentsSeparatedByString:@"\n"];
+        __block NSString* branch;
+        [branches enumerateObjectsUsingBlock:^(NSString*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj containsString:@"*"]) {
+                branch = [[obj stringByReplacingOccurrencesOfString:@"*" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }
+        }];
+        
+        if (branch && branch.length > 0) {
+            [self showNotification:branch];
+        } else {
+            [self showNotification:@"获取分支失败"];
+        }
     } finish:^{
         wself.task = nil;
     }];

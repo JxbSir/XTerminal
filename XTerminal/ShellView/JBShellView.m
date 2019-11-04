@@ -244,6 +244,12 @@
 	if (![self shouldChangeTextInRange:NSMakeRange(range.location, range.length) replacementString:@""]) {
 		return;
 	}
+    
+    NSRange mrange = [self markedRange];
+    if (mrange.length > 0) {
+        [super insertText:insertString];
+        return;
+    }
 	
 	NSString *input = [self inputString];
 	
@@ -258,6 +264,7 @@
 					   insertedString:insertString
 					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
 						NSLog(@"Processed: %@", processedText);
+        
 						[self replaceCurrentCommandWith:processedText];
 						
 						newSelectedRange.location += self.commandStart;

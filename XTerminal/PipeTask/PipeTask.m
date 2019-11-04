@@ -71,10 +71,10 @@
         if (text.length > 0) {
             self.completion(text);
             [_file readInBackgroundAndNotify];
-        }
-    
-        if (!self.task.running) {
-            self.finish();
+        } else {
+            if (!self.task.running) {
+                self.finish();
+            }
         }
     }
 }

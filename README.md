@@ -14,19 +14,21 @@
 > - 假如你git操作常用命令，而且需要就在本屏幕内实现，那么你对此插件**需求很高**
 
 ### XTermimal支持命令
-> [] bash
+> [✔] all bash
+>
+> [✔] Cocoapods
 > 
-> [] 快速查看当前分支：shift+B
+> [✔] 快速查看当前分支：shift+B
 > 
-> [] 快速打开Podfile：shift+P
+> [✔] 快速打开Podfile：shift+P
 > 
-> [] 快速打开Podfile.lock：shift+L
+> [✔] 快速打开Podfile.lock：shift+L
 >
 
 ### XTermimal不支持命令
-> [x] vim
+> [❌] vim
 > 
-> [x] Cocoapods
+> [❌] cd
 > 
 
 ### 安装插件

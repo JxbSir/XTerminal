@@ -11,6 +11,7 @@
 
 @interface PipeTask ()
 
+@property (nonatomic, strong) NSString      *rootPath;
 @property (nonatomic, strong) NSTask        *task;
 @property (nonatomic, strong) NSFileHandle  *file;
 
@@ -26,10 +27,11 @@
     NSLog(@"PipeTask dealloc");
 }
 
-- (instancetype)init
+- (instancetype)initWithRootPath:(NSString *)path
 {
     self = [super init];
     if (self) {
+        self.rootPath = path;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData:) name:NSFileHandleReadCompletionNotification object:nil];
     }
     return self;
@@ -39,7 +41,11 @@
     _completion = completion;
     _finish = finish;
     _task = [[NSTask alloc]init];
+    _task.currentDirectoryPath = self.rootPath;
     [_task setLaunchPath:@"/bin/bash"];
+    
+//    NSDictionary* environmentDict = [[NSProcessInfo processInfo] environment];
+//    [_task setEnvironment:environmentDict];
 
     NSArray *arguments = [NSArray arrayWithObjects:@"-c", cmd, nil];
     [_task setArguments:arguments];

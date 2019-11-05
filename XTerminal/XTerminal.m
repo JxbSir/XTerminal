@@ -87,16 +87,32 @@ static XTerminal *sharedPlugin;
         
         
         NSMenu* appSubmenu = [[NSMenu alloc] init];
-       
-        NSMenuItem* bItem = [[NSMenuItem alloc] initWithTitle:@"Current Branch" action:@selector(getCurrentBranch) keyEquivalent:@"b"];
-        [bItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
-        bItem.target = self;
-        [appSubmenu addItem:bItem];
         
         NSMenuItem* openItem = [[NSMenuItem alloc] initWithTitle:@"Open XTerminal" action:@selector(openTerminalInXCode) keyEquivalent:@"t"];
         [openItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
         openItem.target = self;
         [appSubmenu addItem:openItem];
+        
+        [appSubmenu addItem:NSMenuItem.separatorItem];
+        
+        NSMenuItem* branchItem = [[NSMenuItem alloc] initWithTitle:@"Cat Branch" action:@selector(getCurrentBranch) keyEquivalent:@"b"];
+        [branchItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        branchItem.target = self;
+        [appSubmenu addItem:branchItem];
+        
+        [appSubmenu addItem:NSMenuItem.separatorItem];
+        
+        NSMenuItem* podfileItem = [[NSMenuItem alloc] initWithTitle:@"Open Podfile" action:@selector(openPodFile) keyEquivalent:@"p"];
+        [podfileItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        podfileItem.target = self;
+        [appSubmenu addItem:podfileItem];
+        
+        NSMenuItem* podlockItem = [[NSMenuItem alloc] initWithTitle:@"Open Podfile.lock" action:@selector(openPodFileLock) keyEquivalent:@"l"];
+        [podlockItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        podlockItem.target = self;
+        [appSubmenu addItem:podlockItem];
+        
+        [appSubmenu addItem:NSMenuItem.separatorItem];
         
         appMenuItem.submenu = appSubmenu;
         
@@ -112,14 +128,12 @@ static XTerminal *sharedPlugin;
     CCPProject* project = [CCPProject projectForKeyWindow];
     NSString* path = project.directoryPath;
     
-    NSString* cmd = [NSString stringWithFormat:@"cd %@;git branch", path];
-    
     if (_task) {
         [_task cancel];
     }
     __weak typeof(self) wself = self;
-    _task = [[PipeTask alloc] init];
-    [_task execute:cmd completion:^(NSString * _Nonnull text) {
+    _task = [[PipeTask alloc] initWithRootPath:path];
+    [_task execute:@"git branch" completion:^(NSString * _Nonnull text) {
         
         NSArray* branches = [text componentsSeparatedByString:@"\n"];
         __block NSString* branch;
@@ -146,6 +160,20 @@ static XTerminal *sharedPlugin;
     [_terminalController.window makeKeyAndOrderFront:nil];
 }
 
+- (void)openPodFile {
+    CCPProject* project = [CCPProject projectForKeyWindow];
+    NSString* path = [project.directoryPath stringByAppendingPathComponent:@"Podfile"];
+    [[NSWorkspace sharedWorkspace] openFile:path];
+}
+
+- (void)openPodFileLock {
+    CCPProject* project = [CCPProject projectForKeyWindow];
+    NSString* path = [project.directoryPath stringByAppendingPathComponent:@"Podfile.lock"];
+    [[NSWorkspace sharedWorkspace] openFile:path];
+}
+
+
+#pragma mark - show notification
 - (void)showNotification:(NSString *)text {
     
     _notificationController = [[NotificationController alloc] initWithInfo:text];

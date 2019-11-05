@@ -11,6 +11,7 @@
 #import "XUtils.h"
 #import "JBShellView.h"
 #import "PipeTask.h"
+#import "ProfileUtils.h"
 
 @interface TerminalController ()<NSTextFieldDelegate>
 
@@ -50,7 +51,7 @@
     __weak typeof(self) wself = self;
     self.shellView = [[JBShellContainerView alloc] initWithFrame:rect shellViewClass:nil prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
         if (input) {
-            [wself execute:[wself cmdCompatible:input]];
+            [wself execute:[wself cmdAliasable:input]];
         } else {
             [wself.task cancel];
         }
@@ -58,17 +59,17 @@
     [self.window.contentView addSubview:self.shellView];
     [self.window makeFirstResponder:self.shellView.shellView];
 
+    [[ProfileUtils shared] loadProfile:^{
+    }];
 }
 
 - (void)execute:(NSString *)cmd {
-    _task = [[PipeTask alloc] init];
-    
-    NSString* cmdString = [NSString stringWithFormat:@"cd %@; %@", self.projectPath, cmd];
-    
+    _task = [[PipeTask alloc] initWithRootPath:self.projectPath];
+
     [self.shellView.shellView beginDelayedOutputMode];
     
     __weak typeof(self) wself = self;
-    [_task execute:cmdString completion:^(NSString * _Nonnull text) {
+    [_task execute:[NSString stringWithFormat:@"source ~/.bash_profile;%@",cmd] completion:^(NSString * _Nonnull text) {
         [wself.shellView.shellView appendOutputWithNewlines:text];
     } finish:^{
         [wself.shellView.shellView endDelayedOutputMode];
@@ -76,10 +77,19 @@
     }];
 }
 
-- (NSString *)cmdCompatible:(NSString *)cmd {
-    if ([[cmd lowercaseString] hasPrefix:@"pod"]) {
-        return [NSString stringWithFormat:@"/usr/local/bin/%@", cmd];
+- (NSString *)cmdAliasable:(NSString *)cmd {
+    if (![cmd containsString:@" "]) {
+        return [[ProfileUtils shared] getAliasByName:cmd];
     }
-    return cmd;
+    
+    NSArray* list = [cmd componentsSeparatedByString:@" "];
+    NSString* name = list[0];
+    NSString* nameAliased = [[ProfileUtils shared] getAliasByName:name];
+    
+    NSMutableArray* mList = [NSMutableArray arrayWithArray:list];
+    [mList removeObjectAtIndex:0];
+    [mList insertObject:nameAliased atIndex:0];
+    
+    return [mList componentsJoinedByString:@" "];
 }
 @end

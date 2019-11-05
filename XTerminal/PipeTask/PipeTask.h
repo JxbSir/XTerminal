@@ -15,6 +15,8 @@ typedef void(^TaskFinish)(void);
 
 @interface PipeTask : NSObject
 
+- (instancetype)initWithRootPath:(NSString *)path;
+
 - (void)execute:(NSString *)cmd completion:(TaskCompletion)completion finish:(TaskFinish)finish;
 - (void)cancel;
 @end

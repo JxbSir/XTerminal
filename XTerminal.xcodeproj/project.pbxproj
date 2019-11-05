@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D02B4D0E236C0A07006D025C /* PipeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D02B4D0D236C0A07006D025C /* PipeTask.m */; };
+		D075082E23711B380020E73F /* ProfileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D075082D23711B380020E73F /* ProfileUtils.m */; };
 		D0A557D8236ABCE4007FA530 /* XTerminal.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557D7236ABCE4007FA530 /* XTerminal.m */; };
 		D0A557F1236ACFDD007FA530 /* CCPWorkspaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E4236ACFDD007FA530 /* CCPWorkspaceManager.m */; };
 		D0A557F2236ACFDD007FA530 /* CCPDocumentationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A557E5236ACFDD007FA530 /* CCPDocumentationManager.m */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		D02B4D0C236C0A07006D025C /* PipeTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PipeTask.h; sourceTree = "<group>"; };
 		D02B4D0D236C0A07006D025C /* PipeTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PipeTask.m; sourceTree = "<group>"; };
+		D075082C23711B380020E73F /* ProfileUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileUtils.h; sourceTree = "<group>"; };
+		D075082D23711B380020E73F /* ProfileUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileUtils.m; sourceTree = "<group>"; };
 		D0A557D1236ABCE4007FA530 /* XTerminal.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XTerminal.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A557D6236ABCE4007FA530 /* XTerminal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTerminal.h; sourceTree = "<group>"; };
 		D0A557D7236ABCE4007FA530 /* XTerminal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XTerminal.m; sourceTree = "<group>"; };
@@ -91,6 +94,15 @@
 			path = PipeTask;
 			sourceTree = "<group>";
 		};
+		D075082B23711B1D0020E73F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D075082C23711B380020E73F /* ProfileUtils.h */,
+				D075082D23711B380020E73F /* ProfileUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D0A557C9236ABCE4007FA530 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 		D0A557D3236ABCE4007FA530 /* XTerminal */ = {
 			isa = PBXGroup;
 			children = (
+				D075082B23711B1D0020E73F /* Utils */,
 				D0CDFC30236F254500262E6E /* Notification */,
 				D02B4D0B236C09F2006D025C /* PipeTask */,
 				D0A55817236BD747007FA530 /* ShellView */,
@@ -262,6 +275,7 @@
 				D0A5581F236BD77B007FA530 /* JBTextEditorProcessor.m in Sources */,
 				D0A557D8236ABCE4007FA530 /* XTerminal.m in Sources */,
 				D0A557F3236ACFDD007FA530 /* CCPShellRunner.m in Sources */,
+				D075082E23711B380020E73F /* ProfileUtils.m in Sources */,
 				D0A55820236BD77B007FA530 /* JBShellContainerView.m in Sources */,
 				D0A557F7236ACFDD007FA530 /* CCPRunOperation.m in Sources */,
 				D02B4D0E236C0A07006D025C /* PipeTask.m in Sources */,

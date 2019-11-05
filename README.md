@@ -1,11 +1,11 @@
-###XTerminal是什么？
+### XTerminal是什么？
 > 它就是终端Terminal，只不过它是简单阉割版，部分命令暂时不能支持。
 > 
 > 它虽是终端，但不止于终端，会集成各种快捷命令
 > 
 > *插件下载地址在本文最后*
 
-###为什么要造一个XTerminal？
+### 为什么要造一个XTerminal？
 > Apple很吝啬，始终不肯将terminal嵌入XCode中，像Android Studio，IDEA等都支持了。
 >
 > ##### 我们是否需要它？
@@ -66,6 +66,4 @@ find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.p
 ```
 ~/Library/Application Support/Developer/Shared/Xcode/Plug-ins
 ```
->
 
-### [下载地址](https://github.com/JxbSir/XTerminal)

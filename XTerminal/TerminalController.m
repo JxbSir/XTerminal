@@ -51,7 +51,7 @@
     __weak typeof(self) wself = self;
     self.shellView = [[JBShellContainerView alloc] initWithFrame:rect shellViewClass:nil prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
         if (input) {
-            [wself execute:[wself cmdAliasable:input]];
+            [wself execute:[self cmdCompatible:[wself cmdAliasable:input]]];
         } else {
             [wself.task cancel];
         }
@@ -91,5 +91,12 @@
     [mList insertObject:nameAliased atIndex:0];
     
     return [mList componentsJoinedByString:@" "];
+}
+
+- (NSString *)cmdCompatible:(NSString *)cmd {
+    if ([[cmd lowercaseString] hasPrefix:@"pod"]) {
+        return [NSString stringWithFormat:@"/usr/local/bin/%@", cmd];
+    }
+    return cmd;
 }
 @end

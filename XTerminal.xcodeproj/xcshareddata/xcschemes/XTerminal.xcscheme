@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "890A4B3E171F031300AFE577"
+               BlueprintIdentifier = "D0A557D0236ABCE4007FA530"
                BuildableName = "XTerminal.xcplugin"
                BlueprintName = "XTerminal"
                ReferencedContainer = "container:XTerminal.xcodeproj">
@@ -23,17 +23,15 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -50,7 +48,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "890A4B3E171F031300AFE577"
+            BlueprintIdentifier = "D0A557D0236ABCE4007FA530"
             BuildableName = "XTerminal.xcplugin"
             BlueprintName = "XTerminal"
             ReferencedContainer = "container:XTerminal.xcodeproj">
@@ -62,8 +60,6 @@
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -74,7 +70,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "890A4B3E171F031300AFE577"
+            BlueprintIdentifier = "D0A557D0236ABCE4007FA530"
             BuildableName = "XTerminal.xcplugin"
             BlueprintName = "XTerminal"
             ReferencedContainer = "container:XTerminal.xcodeproj">

@@ -44,8 +44,8 @@
     _task.currentDirectoryPath = self.rootPath;
     [_task setLaunchPath:@"/bin/bash"];
     
-//    NSDictionary* environmentDict = [[NSProcessInfo processInfo] environment];
-//    [_task setEnvironment:environmentDict];
+    NSDictionary* environmentDict = [[NSProcessInfo processInfo] environment];
+    [_task setEnvironment:environmentDict];
 
     NSArray *arguments = [NSArray arrayWithObjects:@"-c", cmd, nil];
     [_task setArguments:arguments];

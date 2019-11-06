@@ -51,7 +51,7 @@ sudo codesign -f -s XcodeSigner /Applications/Xcode.app
 > 若不存在，可以自行增加到info.list再运行
 > 
 ```
-find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add DF11C142-1584-4A99-87AC-1925D5F5652A
+defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID
 ```
 > 
 > 

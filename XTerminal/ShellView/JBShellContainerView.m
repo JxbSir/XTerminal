@@ -41,7 +41,9 @@
 		[shellView setHorizontallyResizable:NO];
 		[shellView setBackgroundColor:color];
 		[[shellView textContainer] setWidthTracksTextView:YES];
-		
+        [shellView setTextColor:[NSColor colorWithRed:127/255.0 green:184/255.0 blue:14/255.0 alpha:1]];
+
+        
 		self.shellView = shellView;
 		
 		[_scrollView setDocumentView:shellView];

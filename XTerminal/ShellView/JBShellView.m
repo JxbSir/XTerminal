@@ -193,6 +193,14 @@
 		[self setSelectedRange:NSMakeRange(self.commandStart, 0)];
 		[self scrollRangeToVisible:[self selectedRange]];
 	}
+    
+    if (modifierFlags & NSEventModifierFlagCommand) {
+        if (character == '\x72') {
+            [self setString:self.prompt];
+            [self finishOutput];
+            return;
+        }
+    }
 	
 	// When the control key is held down
     if (modifierFlags & NSEventModifierFlagControl) {
@@ -222,7 +230,11 @@
 	} else {
 		switch (character) {
 			case NSCarriageReturnCharacter:
-				[self acceptInput];
+                if (self.markedRange.length > 0) {
+                    [super keyDown:theEvent];
+                } else {
+                    [self acceptInput];
+                }
 				break;
 			default:
 				[super keyDown:theEvent];

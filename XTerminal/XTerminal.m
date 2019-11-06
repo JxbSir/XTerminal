@@ -126,6 +126,9 @@ static XTerminal *sharedPlugin;
 // Sample Action, for menu item:
 - (void)getCurrentBranch {
     CCPProject* project = [CCPProject projectForKeyWindow];
+    if (!project) {
+        return;
+    }
     NSString* path = project.directoryPath;
     
     if (_task) {
@@ -155,6 +158,9 @@ static XTerminal *sharedPlugin;
 
 - (void)openTerminalInXCode {
     CCPProject* project = [CCPProject projectForKeyWindow];
+    if (!project) {
+        return;
+    }
     NSString* path = project.directoryPath;
     _terminalController = [[TerminalController alloc] initWithProjectPath:path];
     [_terminalController.window makeKeyAndOrderFront:nil];
@@ -162,12 +168,18 @@ static XTerminal *sharedPlugin;
 
 - (void)openPodFile {
     CCPProject* project = [CCPProject projectForKeyWindow];
+    if (!project) {
+        return;
+    }
     NSString* path = [project.directoryPath stringByAppendingPathComponent:@"Podfile"];
     [[NSWorkspace sharedWorkspace] openFile:path];
 }
 
 - (void)openPodFileLock {
     CCPProject* project = [CCPProject projectForKeyWindow];
+    if (!project) {
+        return;
+    }
     NSString* path = [project.directoryPath stringByAppendingPathComponent:@"Podfile.lock"];
     [[NSWorkspace sharedWorkspace] openFile:path];
 }

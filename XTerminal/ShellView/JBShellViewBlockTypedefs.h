@@ -11,6 +11,7 @@
 
 @class JBShellView;
 typedef void (^JBShellViewInputProcessingHandler)(NSString *input, JBShellView *sender);
+typedef void (^JBShellViewExitHandler)(void);
 typedef void (^JBShellViewDragHandler)(id draggedObject);
 
 #endif

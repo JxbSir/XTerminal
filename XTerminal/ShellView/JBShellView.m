@@ -182,6 +182,13 @@
 	}
 	
 	unichar character = [[theEvent characters] characterAtIndex:0];
+    
+    if (character == '\x1b') {
+        //esc , exit
+        self.exitHandler();
+        return;
+    }
+    
 	NSUInteger modifierFlags = [theEvent modifierFlags];
 	BOOL arrowKey = (character == NSLeftArrowFunctionKey
 					 || character == NSRightArrowFunctionKey

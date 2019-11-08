@@ -56,6 +56,10 @@
             [wself.task cancel];
         }
     }];
+    self.shellView.shellView.exitHandler = ^{
+        [wself.window orderOut:nil];
+        [wself.window resignKeyWindow];
+    };
     [self.window.contentView addSubview:self.shellView];
     [self.window makeFirstResponder:self.shellView.shellView];
 

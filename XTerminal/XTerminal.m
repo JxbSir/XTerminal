@@ -114,6 +114,11 @@ static XTerminal *sharedPlugin;
         
         [appSubmenu addItem:NSMenuItem.separatorItem];
         
+        NSMenuItem* projectDirItem = [[NSMenuItem alloc] initWithTitle:@"Open Project Directory" action:@selector(openProjectDir) keyEquivalent:@"j"];
+        [projectDirItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        projectDirItem.target = self;
+        [appSubmenu addItem:projectDirItem];
+        
         appMenuItem.submenu = appSubmenu;
         
         
@@ -168,20 +173,28 @@ static XTerminal *sharedPlugin;
 
 - (void)openPodFile {
     CCPProject* project = [CCPProject projectForKeyWindow];
-    if (!project) {
+    if (!project || !project.hasPodfile) {
         return;
     }
-    NSString* path = [project.directoryPath stringByAppendingPathComponent:@"Podfile"];
-    [[NSWorkspace sharedWorkspace] openFile:path];
+    [[NSWorkspace sharedWorkspace] openFile:project.podfilePath];
 }
 
 - (void)openPodFileLock {
     CCPProject* project = [CCPProject projectForKeyWindow];
+    if (!project || !project.hasPodfile) {
+        return;
+    }
+    NSString* path = [project.podfilePath stringByAppendingString:@".lock"];
+    [[NSWorkspace sharedWorkspace] openFile:path];
+}
+
+- (void)openProjectDir {
+    CCPProject* project = [CCPProject projectForKeyWindow];
     if (!project) {
         return;
     }
-    NSString* path = [project.directoryPath stringByAppendingPathComponent:@"Podfile.lock"];
-    [[NSWorkspace sharedWorkspace] openFile:path];
+    
+    [[NSWorkspace sharedWorkspace] openFile:project.directoryPath];
 }
 
 

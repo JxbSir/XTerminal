@@ -88,19 +88,22 @@ static XTerminal *sharedPlugin;
         
         NSMenu* appSubmenu = [[NSMenu alloc] init];
         
-        NSMenuItem* openItem = [[NSMenuItem alloc] initWithTitle:@"Open XTerminal" action:@selector(openTerminalInXCode) keyEquivalent:@"t"];
-        [openItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
-        openItem.target = self;
-        [appSubmenu addItem:openItem];
-        
-        [appSubmenu addItem:NSMenuItem.separatorItem];
-        
         NSMenuItem* branchItem = [[NSMenuItem alloc] initWithTitle:@"Cat Branch" action:@selector(getCurrentBranch) keyEquivalent:@"b"];
         [branchItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
         branchItem.target = self;
         [appSubmenu addItem:branchItem];
-        
+
         [appSubmenu addItem:NSMenuItem.separatorItem];
+        
+        NSMenuItem* openXterminalItem = [[NSMenuItem alloc] initWithTitle:@"Open XTerminal" action:@selector(openTerminalInXCode) keyEquivalent:@"t"];
+        [openXterminalItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        openXterminalItem.target = self;
+        [appSubmenu addItem:openXterminalItem];
+        
+        NSMenuItem* openItermItem = [[NSMenuItem alloc] initWithTitle:@"Open iTerm2" action:@selector(openITerm2) keyEquivalent:@"i"];
+        [openItermItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        openItermItem.target = self;
+        [appSubmenu addItem:openItermItem];
         
         NSMenuItem* podfileItem = [[NSMenuItem alloc] initWithTitle:@"Open Podfile" action:@selector(openPodFile) keyEquivalent:@"p"];
         [podfileItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
@@ -112,14 +115,10 @@ static XTerminal *sharedPlugin;
         podlockItem.target = self;
         [appSubmenu addItem:podlockItem];
         
-        [appSubmenu addItem:NSMenuItem.separatorItem];
-        
         NSMenuItem* projectDirItem = [[NSMenuItem alloc] initWithTitle:@"Open Project Directory" action:@selector(openProjectDir) keyEquivalent:@"j"];
         [projectDirItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
         projectDirItem.target = self;
         [appSubmenu addItem:projectDirItem];
-        
-        [appSubmenu addItem:NSMenuItem.separatorItem];
         
         NSMenuItem* gitWebItem = [[NSMenuItem alloc] initWithTitle:@"Open Git Webbrowser" action:@selector(openGitWebbrowser) keyEquivalent:@"g"];
         [gitWebItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
@@ -162,6 +161,12 @@ static XTerminal *sharedPlugin;
     NSString* path = project.directoryPath;
     _terminalController = [[TerminalController alloc] initWithProjectPath:path];
     [_terminalController.window makeKeyAndOrderFront:nil];
+}
+
+- (void)openITerm2 {
+    [self executeCommand:@"open -a iTerm \"$pwd\"" completion:^(NSString *result) {
+        
+    }];
 }
 
 - (void)openPodFile {

@@ -119,6 +119,13 @@ static XTerminal *sharedPlugin;
         projectDirItem.target = self;
         [appSubmenu addItem:projectDirItem];
         
+        [appSubmenu addItem:NSMenuItem.separatorItem];
+        
+        NSMenuItem* gitWebItem = [[NSMenuItem alloc] initWithTitle:@"Open Git Webbrowser" action:@selector(openGitWebbrowser) keyEquivalent:@"g"];
+        [gitWebItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        gitWebItem.target = self;
+        [appSubmenu addItem:gitWebItem];
+        
         appMenuItem.submenu = appSubmenu;
         
         
@@ -130,19 +137,7 @@ static XTerminal *sharedPlugin;
 
 // Sample Action, for menu item:
 - (void)getCurrentBranch {
-    CCPProject* project = [CCPProject projectForKeyWindow];
-    if (!project) {
-        return;
-    }
-    NSString* path = project.directoryPath;
-    
-    if (_task) {
-        [_task cancel];
-    }
-    __weak typeof(self) wself = self;
-    _task = [[PipeTask alloc] initWithRootPath:path];
-    [_task execute:@"git branch" completion:^(NSString * _Nonnull text) {
-        
+    [self executeCommand:@"git branch" completion:^(NSString *text) {
         NSArray* branches = [text componentsSeparatedByString:@"\n"];
         __block NSString* branch;
         [branches enumerateObjectsUsingBlock:^(NSString*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -156,8 +151,6 @@ static XTerminal *sharedPlugin;
         } else {
             [self showNotification:@"获取分支失败"];
         }
-    } finish:^{
-        wself.task = nil;
     }];
 }
 
@@ -197,6 +190,52 @@ static XTerminal *sharedPlugin;
     [[NSWorkspace sharedWorkspace] openFile:project.directoryPath];
 }
 
+- (void)openGitWebbrowser {
+    [self executeCommand:@"git remote -v" completion:^(NSString *result) {
+        NSArray* list = [result componentsSeparatedByString:@"\t"];
+        if (list.count != 3) {
+            [self showNotification:@"git remote is not exist"];
+            return;
+        }
+        NSString* originUrl = list[1];
+        BOOL isSSHUrl = [originUrl containsString:@"@"];
+        if (isSSHUrl) {
+            NSString* pattern = @"(?<=@).*?(?=.git)";
+            NSRegularExpression* regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+            NSTextCheckingResult* result = [regular firstMatchInString:originUrl options:NSMatchingReportCompletion range:NSMakeRange(0, originUrl.length)];
+            NSString* partialUrl = [originUrl substringWithRange:result.range];
+            NSString* url = [NSString stringWithFormat:@"https://%@", [partialUrl stringByReplacingOccurrencesOfString:@":" withString:@"/"]];
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+        } else {
+            NSString* url = originUrl;
+            if ([originUrl containsString:@" "]) {
+                url = [url componentsSeparatedByString:@" "][0];
+            }
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+        }
+    }];
+}
+
+
+#pragma mark - execute command
+- (void)executeCommand:(NSString *)cmd completion:(void(^)(NSString *result))completion {
+    CCPProject* project = [CCPProject projectForKeyWindow];
+    if (!project) {
+        return;
+    }
+    NSString* path = project.directoryPath;
+    
+    if (_task) {
+        [_task cancel];
+    }
+    __weak typeof(self) wself = self;
+    _task = [[PipeTask alloc] initWithRootPath:path];
+    [_task execute:cmd completion:^(NSString * _Nonnull text) {
+        completion(text);
+    } finish:^{
+        wself.task = nil;
+    }];
+}
 
 #pragma mark - show notification
 - (void)showNotification:(NSString *)text {

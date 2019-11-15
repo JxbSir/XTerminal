@@ -120,6 +120,11 @@ static XTerminal *sharedPlugin;
         projectDirItem.target = self;
         [appSubmenu addItem:projectDirItem];
         
+        NSMenuItem* driveDataItem = [[NSMenuItem alloc] initWithTitle:@"Open DerivedData" action:@selector(openDriverData) keyEquivalent:@"d"];
+        [driveDataItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        driveDataItem.target = self;
+        [appSubmenu addItem:driveDataItem];
+        
         NSMenuItem* gitWebItem = [[NSMenuItem alloc] initWithTitle:@"Open Git Webbrowser" action:@selector(openGitWebbrowser) keyEquivalent:@"g"];
         [gitWebItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
         gitWebItem.target = self;
@@ -193,6 +198,13 @@ static XTerminal *sharedPlugin;
     }
     
     [[NSWorkspace sharedWorkspace] openFile:project.directoryPath];
+}
+
+- (void)openDriverData {
+    [self executeCommand:@"whoami" completion:^(NSString *result) {
+        NSString* path = [NSString stringWithFormat:@"/Users/%@/Library/Developer/Xcode/DerivedData", [result stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet]];
+        [[NSWorkspace sharedWorkspace] openFile:path];
+    }];
 }
 
 - (void)openGitWebbrowser {

@@ -91,7 +91,7 @@
 	_inputHandler = [inputHandler copy];
 }
 
-- (void)appendOutput:(NSString *)output {
+- (void)appendOutput:(id)output {
 	[self moveToEndOfDocument:self];
 	[super insertText:output];
 	self.commandStart = [[self string] length];
@@ -99,7 +99,7 @@
 }
 
 
-- (void)appendOutputWithNewlines:(NSString *)output {
+- (void)appendOutputWithNewlines:(id)output {
 	[self appendOutput:output];
 }
 

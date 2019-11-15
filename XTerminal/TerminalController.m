@@ -12,6 +12,7 @@
 #import "JBShellView.h"
 #import "PipeTask.h"
 #import "ProfileUtils.h"
+#import "XTerminalConstants.h"
 
 @interface TerminalController ()<NSTextFieldDelegate>
 
@@ -74,13 +75,37 @@
     
     __weak typeof(self) wself = self;
     [_task execute:[NSString stringWithFormat:@"source ~/.bash_profile;%@",cmd] completion:^(NSString * _Nonnull text) {
-        [wself.shellView.shellView appendOutputWithNewlines:text];
+        [wself appendText:text];
     } finish:^{
         [wself.shellView.shellView endDelayedOutputMode];
         wself.task = nil;
     }];
 }
 
+
+- (void)appendText:(NSString *)text {
+
+    NSMutableAttributedString* textAttr = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    NSArray<NSString *>* list = [text componentsSeparatedByString:@"\n"];
+    [list enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj != nil) {
+            if ([obj hasPrefix:@"+"] && ![obj hasPrefix:@"++"]) {
+                NSRange range = [text rangeOfString:obj];
+                [textAttr addAttribute:NSForegroundColorAttributeName value:XTerimalDiffAddTextColor range:range];
+            } else if ([obj hasPrefix:@"-"] && ![obj hasPrefix:@"--"]) {
+                NSRange range = [text rangeOfString:obj];
+                [textAttr addAttribute:NSForegroundColorAttributeName value:XTerimalDiffRemoveTextColor range:range];
+            }
+        }
+        
+    }];
+    
+    [self.shellView.shellView appendOutputWithNewlines:textAttr];
+}
+
+
+#pragma mark - cmd
 - (NSString *)cmdAliasable:(NSString *)cmd {
     if (![cmd containsString:@" "]) {
         return [[ProfileUtils shared] getAliasByName:cmd];

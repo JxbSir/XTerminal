@@ -31,8 +31,8 @@
 
 - (id)initWithFrame:(CGRect)frame prompt:(NSString *)prompt inputHandler:(JBShellViewInputProcessingHandler)inputHandler;
 
-- (void)appendOutput:(NSString *)output; // used for finer-grained control of output
-- (void)appendOutputWithNewlines:(NSString *)output; // Used for general output
+- (void)appendOutput:(id)output; // used for finer-grained control of output
+- (void)appendOutputWithNewlines:(id)output; // Used for general output
 - (void)showErrorOutput:(NSString *)output errorRange:(NSRange)errorRange;
 
 - (void)appendAttributedOutput:(NSAttributedString *)attributedOutput;

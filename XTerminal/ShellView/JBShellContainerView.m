@@ -9,6 +9,8 @@
 #import "JBShellContainerView.h"
 #import "JBShellView.h"
 
+#import "XTerminalConstants.h"
+
 @interface JBShellContainerView ()
 
 @property (nonatomic, strong) NSScrollView* scrollView;
@@ -22,7 +24,6 @@
     self = [super initWithFrame:frameRect];
     if (self) {
         // Initialization code here.
-        NSColor* color = [NSColor colorWithRed:13.0/255.0 green:42.0/255.0  blue:53.0/255.0  alpha:1];
 		CGRect bounds = [self bounds];
         _scrollView = [[NSScrollView alloc] initWithFrame:bounds];
 		[_scrollView setBorderType:NSNoBorder];
@@ -30,7 +31,7 @@
 		[_scrollView setHasHorizontalScroller:NO];
 		[_scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
 		CGSize contentSize = [_scrollView contentSize];
-		[_scrollView setBackgroundColor:color];
+		[_scrollView setBackgroundColor:XTerimalBackgroundColor];
 		
 		if (shellViewClass == nil) shellViewClass = [JBShellView class];
 		JBShellView *shellView = [[shellViewClass alloc] initWithFrame:CGRectMake(0, 0, contentSize.width, contentSize.height) prompt:prompt inputHandler:inputProcessingHandler];
@@ -39,9 +40,9 @@
 		[shellView setMaxSize:CGSizeMake(1e7, 1e7)];
 		[shellView setVerticallyResizable:YES];
 		[shellView setHorizontallyResizable:NO];
-		[shellView setBackgroundColor:color];
+		[shellView setBackgroundColor:XTerimalBackgroundColor];
 		[[shellView textContainer] setWidthTracksTextView:YES];
-        [shellView setTextColor:[NSColor colorWithRed:127/255.0 green:184/255.0 blue:14/255.0 alpha:1]];
+        [shellView setTextColor:XTerimalTextColor];
 
         
 		self.shellView = shellView;

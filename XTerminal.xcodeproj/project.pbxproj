@@ -70,6 +70,7 @@
 		D0CDFC34236F257C00262E6E /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
 		D0CDFC35236F257C00262E6E /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		D0CDFC36236F257C00262E6E /* NotificationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationController.xib; sourceTree = "<group>"; };
+		D0CFFDA2237E49180046A88C /* XTerminalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTerminalConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +131,7 @@
 				D0A557E2236ACFDD007FA530 /* Helpers */,
 				D0A557D6236ABCE4007FA530 /* XTerminal.h */,
 				D0A557D7236ABCE4007FA530 /* XTerminal.m */,
+				D0CFFDA2237E49180046A88C /* XTerminalConstants.h */,
 				D0A557D9236ABCE4007FA530 /* Info.plist */,
 				D0A557FF236AD153007FA530 /* PrefixHeader.pch */,
 				D0A55805236AE399007FA530 /* TerminalController.h */,

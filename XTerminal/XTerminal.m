@@ -94,11 +94,11 @@ static XTerminal *sharedPlugin;
         [appSubmenu addItem:branchItem];
 
         [appSubmenu addItem:NSMenuItem.separatorItem];
-        
-        NSMenuItem* openXterminalItem = [[NSMenuItem alloc] initWithTitle:@"Open XTerminal" action:@selector(openTerminalInXCode) keyEquivalent:@"t"];
-        [openXterminalItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
-        openXterminalItem.target = self;
-        [appSubmenu addItem:openXterminalItem];
+
+        NSMenuItem* driveDataItem = [[NSMenuItem alloc] initWithTitle:@"Open DerivedData" action:@selector(openDriverData) keyEquivalent:@"d"];
+        [driveDataItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        driveDataItem.target = self;
+        [appSubmenu addItem:driveDataItem];
         
         NSMenuItem* openItermItem = [[NSMenuItem alloc] initWithTitle:@"Open iTerm2" action:@selector(openITerm2) keyEquivalent:@"i"];
         [openItermItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
@@ -120,15 +120,15 @@ static XTerminal *sharedPlugin;
         projectDirItem.target = self;
         [appSubmenu addItem:projectDirItem];
         
-        NSMenuItem* driveDataItem = [[NSMenuItem alloc] initWithTitle:@"Open DerivedData" action:@selector(openDriverData) keyEquivalent:@"d"];
-        [driveDataItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
-        driveDataItem.target = self;
-        [appSubmenu addItem:driveDataItem];
-        
         NSMenuItem* gitWebItem = [[NSMenuItem alloc] initWithTitle:@"Open Git Webbrowser" action:@selector(openGitWebbrowser) keyEquivalent:@"g"];
         [gitWebItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
         gitWebItem.target = self;
         [appSubmenu addItem:gitWebItem];
+
+        NSMenuItem* openXterminalItem = [[NSMenuItem alloc] initWithTitle:@"Open XTerminal" action:@selector(openTerminalInXCode) keyEquivalent:@"t"];
+        [openXterminalItem setKeyEquivalentModifierMask:NSEventModifierFlagShift];
+        openXterminalItem.target = self;
+        [appSubmenu addItem:openXterminalItem];
         
         appMenuItem.submenu = appSubmenu;
         
